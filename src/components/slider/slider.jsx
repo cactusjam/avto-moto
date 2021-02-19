@@ -3,7 +3,7 @@ import React from 'react';
 const Slider = ({ images }) => {
   return (
     <ul>
-      {images.map((alt, id, src) => {
+      {images.map(({ alt, id, src }) => {
         return (
           <li key={id}>
             <img src={src} alt={alt}/>

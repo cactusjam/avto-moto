@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../header/header';
 import Promo from '../promo/promo';
 
-const Wrapper = ({images}) => {
+const Wrapper = ({ images }) => {
   return (
     <>
       <Header />

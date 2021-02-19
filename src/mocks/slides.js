@@ -1,4 +1,5 @@
-export default [{
+const slides = [
+  {
     id: 1,
     alt: 'машина напротив здания',
     src: '/img/slider/1.jpg',
@@ -14,3 +15,5 @@ export default [{
     src: '/img/slider/3.jpg',
   }
 ];
+
+export default slides;
