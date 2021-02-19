@@ -10,6 +10,10 @@ const SliderDescription = () => {
         <li>100 л.с.</li>
         <li>1.4 л</li>
       </ul>
+      <span>2 300 000 ₽</span>
+      <span>2  400 000 ₽</span>
+      <button type='button'>оставить заявку</button>
+      <button type='button'>В КРЕДИТ ОТ 11 000 ₽</button>
     </div>
   );
 };
