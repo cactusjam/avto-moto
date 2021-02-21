@@ -2,19 +2,21 @@ import React from 'react';
 
 const SliderDescription = () => {
   return (
-    <div className="slider-charact">
-      <h3>Марпех 11</h3>
-      <ul>
-        <li>бензин</li>
-        <li>механика</li>
-        <li>100 л.с.</li>
-        <li>1.4 л</li>
+    <section className='slider__description'>
+      <h3 className='slider__description-caption'>Марпех 11</h3>
+      <ul className='slider__description-list'>
+        <li className='slider__description-item slider__description-item--petrol'>бензин</li>
+        <li className='slider__description-item slider__description-item--mechanics'>механика</li>
+        <li className='slider__description-item slider__description-item--power'>100 л.с.</li>
+        <li className='slider__description-item slider__description-item--volume'>1.4 л</li>
       </ul>
-      <span>2 300 000 ₽</span>
-      <span>2  400 000 ₽</span>
-      <button type='button'>оставить заявку</button>
-      <button type='button'>В КРЕДИТ ОТ 11 000 ₽</button>
-    </div>
+      <div className='slider__description-price'>
+        <span>2 300 000 ₽</span>
+        <img src='/img/price.svg' width='123px' height='28px' alt='Цена'/>
+      </div>
+      <button className='slider__description-button slider__description-button--bid' type='button'>оставить заявку</button>
+      <button className='slider__description-button slider__description-button--credit' type='button'>В КРЕДИТ ОТ 11 000 ₽</button>
+    </section>
   );
 };
 

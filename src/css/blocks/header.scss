@@ -1,6 +1,9 @@
 .header {
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
+  padding-left: 7px;
+  padding-right: 7px;
 }
 
 .header__menu {
