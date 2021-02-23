@@ -3,7 +3,7 @@ import MapContainer from '../map/map';
 
 const TabContact = () => {
   return (
-    <div className="block-tabs_content contacts">
+    <div className="block-tabs_content contacts visually-hidden">
       <ul className="contacts__list">
         <li className="contacts__item">
           <span className="contacts__title">Адрес</span>

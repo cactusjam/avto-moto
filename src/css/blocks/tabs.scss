@@ -1,5 +1,5 @@
 .block-tabs {
-  margin-top: 90px;
+  padding-bottom: 90px;
 }
 
 .block-tabs_nav-btn {
@@ -147,13 +147,13 @@
   list-style: 0;
 
   &:not(:last-child) {
-    margin-bottom: 35px;
+    margin-bottom: 20px;
   }
 }
 
 .contacts__title {
   font-weight: 700;
-  margin-bottom: 18px;
+  margin-bottom: 8px;
 }
 
 .contacts__text {

@@ -1,6 +1,7 @@
 .slider {
   display: flex;
   padding-top: 90px;
+  padding-bottom: 90px;
 }
 
 .slider__gallery-list {
@@ -107,6 +108,7 @@
   font-size: 14px;
   text-transform: uppercase;
   padding: 17px 20px;
+  background: none;
 
   &--bid {
     background-color: rgba(209, 33, 54, 1);
