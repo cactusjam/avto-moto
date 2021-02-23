@@ -1,4 +1,7 @@
 import React from 'react';
+import {MapSetting, IconSetting} from '../../utils/const';
+import {YMaps, Map, Placemark} from 'react-yandex-maps';
+import location from '../../img/location.svg';
 
 const TabContact = () => {
   return (
@@ -21,6 +24,19 @@ const TabContact = () => {
           <a className="contacts__text" href="mailto:info@avto-moto.ru">info@avto-moto.ru</a>
         </li>
       </ul>
+      <YMaps>
+        <Map defaultState={{center: MapSetting.COORDINATES, zoom: MapSetting.ZOOM}} className={MapSetting.CONTAINER}>
+          <Placemark
+            geometry={IconSetting.COORDINATES}
+            options={{
+              iconLayout: IconSetting.LAYOUT,
+              iconImageHref: location,
+              iconImageSize: IconSetting.SIZES,
+              iconImageOffset: IconSetting.OFFSETS
+            }}
+          />
+        </Map>
+      </YMaps >
     </div>
   );
 }
