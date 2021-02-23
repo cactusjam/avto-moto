@@ -130,10 +130,15 @@
   border: 1px solid #D12136;
 }
 
+.contacts {
+  display: flex
+}
+
 .contacts__list {
   margin: 0;
   padding: 0;
   width: 274px;
+  margin-right: 74px;
 }
 
 .contacts__item {
