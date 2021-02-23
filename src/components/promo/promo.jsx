@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from '../slider/slider';
 import SliderDescription from '../slider-description/slider-description';
-import PromoMenu from '../promo-menu/promo-menu';
+import TabMenu from '../tab-menu/tab-menu';
 
 const Promo = ({ images }) => {
   return (
@@ -10,7 +10,7 @@ const Promo = ({ images }) => {
         <Slider images={images} />
         <SliderDescription />
       </section>
-      <PromoMenu />
+      <TabMenu />
     </main>
   );
 }
