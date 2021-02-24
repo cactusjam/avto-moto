@@ -2,7 +2,12 @@
   padding-bottom: 90px;
 }
 
+.block-tabs .block-tabs_content {
+  margin-top: 10px;
+}
+
 .block-tabs_nav-btn {
+  box-sizing: border-box;
   font-family: "Open Sans", "Arial", sans-serif;
   font-size: 20px;
   font-weight: 400;
@@ -11,6 +16,7 @@
   border: 1px solid #D7D9DF;
   color: #48494D;
   background: none;
+  cursor: pointer;
 
   &--checked {
     color: #FFFFFF;
@@ -29,7 +35,7 @@
   flex-wrap: wrap;
   align-items: center;
   list-style: none;
-  width: 565px;
+  width: 585px;
   height: 50px;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
 }
@@ -128,6 +134,7 @@
   width: 189px;
   padding: 17px 0;
   border: 1px solid #D12136;
+  background: none;
 }
 
 .contacts {
