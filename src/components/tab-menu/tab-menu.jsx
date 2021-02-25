@@ -11,9 +11,7 @@ const TabMenu = () => {
   const handleButtonClick = (evt) => {
     evt.preventDefault();
     setActiveTab(evt.target.textContent);
-    console.log(evt.target.textContent);
   };
-
 
   return (
     <div className="block-tabs">
