@@ -5,6 +5,7 @@
 }
 
 .slider__gallery-list {
+  position: relative;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
@@ -13,6 +14,23 @@
   list-style: none;
   margin: 0;
   padding: 0;
+
+  &::before {
+    content: 'New Model';
+    position: absolute;
+    width: 122px;
+    padding-top: 7px;
+    padding-bottom: 10px;
+    background-color: #D12136;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    left: 0;
+    top: 0;
+
+  }
 }
 
 .slider__description {
@@ -151,7 +169,17 @@
   top: 53px;
   cursor: pointer;
 
+
   &--prev {
     transform: rotate(180deg);
+  }
+
+  &--not-active {
+    cursor: auto;
+    opacity: 50%;
+
+    &:focus {
+      outline: none;
+    }
   }
 }

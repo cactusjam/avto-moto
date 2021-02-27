@@ -3,20 +3,23 @@ import React, { useState } from 'react';
 const Slider = ({ images }) => {
   let [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const imagesMaxIndex = images.length === 0 ? 0 : images.length - 1;
-  console.log('activeSlideIndex', activeSlideIndex);
 
   const SliderSnapperBtn = ({ isPrev }) => {
     return (
       <div className='slider__snapper'>
         {isPrev
-          ? <button className='slider__snapper-btn slider__snapper-btn--prev'
+          ? <button className={activeSlideIndex <= 0
+            ? 'slider__snapper-btn slider__snapper-btn--prev slider__snapper-btn--not-active'
+            : 'slider__snapper-btn slider__snapper-btn--prev'}
             onClick={() => {
               if (activeSlideIndex <= 0) {
                 return false;
               }
               setActiveSlideIndex(--activeSlideIndex);
             }} />
-          : <button className='slider__snapper-btn slider__snapper-btn--next'
+          : <button className={activeSlideIndex >= imagesMaxIndex
+            ? 'slider__snapper-btn slider__snapper-btn--next slider__snapper-btn--not-active'
+            : 'slider__snapper-btn slider__snapper-btn--next'}
             onClick={() => {
               if (activeSlideIndex >= imagesMaxIndex) {
                 return false;
