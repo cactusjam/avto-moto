@@ -10,31 +10,28 @@ const TabReview = ({ isActive, setModalVisibility, reviews }) => {
     setModalVisibility(true);
   };
 
-  console.log('reviews -- ', reviews);
-
   return (
     <ul className={isActive ? 'block-tabs_content reviews' : 'visually-hidden'}>
       <button className='reviews__button' onClick={handleButtonClick}>
         Оставить отзыв
       </button>
 
-      {reviews.forEach((review, index) => {
-        console.log('one review', review);
+      {reviews.map((reviewData, index) => {
         return (
           <Fragment key={index}>
             <li className='reviews__item'>
-              <h4>{review.name}</h4>
+              <h4>{reviewData.name}</h4>
               <div className='reviews__dignity'>
                 <p>Достоинства</p>
-                <span>{review.dignity}</span>
+                <span>{reviewData.dignity}</span>
               </div>
               <div className='reviews__limitations'>
                 <p>Недостатки</p>
-                <span>{review.limitations}</span>
+                <span>{reviewData.limitations}</span>
               </div>
               <div>
                 <p>Комментарий</p>
-                <span>{review.reviewText}</span>
+                <span>{reviewData.reviewText}</span>
               </div>
               <div className='reviews__evaluation'>
                 <img src='/img/star.png' alt='Звезды' width='85px' height='24px' />

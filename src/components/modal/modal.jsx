@@ -12,10 +12,16 @@ const defaultFormState = {
   limitations: '',
   rating: 0,
   reviewText: '',
+  isFormChecked: false,
 }
 
 const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) => {
-  const [formState, setFormState] = useState({...defaultFormState})
+  const [formState, setFormState] = useState({ ...defaultFormState })
+
+  const hideModal = () => {
+    setModalVisibility(false);
+    setFormState({ ...defaultFormState });
+  }
 
   const handleChange = (evt) => {
     const inputName = evt.target.name;
@@ -24,31 +30,62 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
     setFormState({
       ...formState,
       [inputName]: newValue,
+      isFormChecked: true,
     });
   }
 
   const handleFormSubmit = (evt) => {
     evt.preventDefault();
 
-    const newReviews = [
+    if (!isValid()) {
+      return;
+    }
+
+    const newReview = {
+      name: formState.name,
+      dignity: formState.dignity,
+      limitations: formState.limitations,
+      rating: formState.rating,
+      reviewText: formState.reviewText,
+    };
+
+    const updatedReviews = [
       ...reviews,
-      formState
+      newReview,
     ]
 
-    updateReviews(newReviews);
-    setFormState({...defaultFormState});
-    setModalVisibility(false);
+    updateReviews(updatedReviews);
+    hideModal();
+  };
+
+  const isNameValid = () => formState.name.length > 0;
+
+  const isReviewTextValid = () => formState.reviewText.length > 0;
+
+  const isValid = () => {
+    return isNameValid() && isReviewTextValid();
+  }
+
+  const getMessage = (validityCheckFunction) => {
+    if (formState.isFormChecked && !validityCheckFunction()) {
+      return (
+        <p className='modal__error'>Пожалуйста, заполните поле</p>
+      );
+    }
+
+    return '';
   };
 
   return (
     <div className={isModalVisible ? 'modal' : 'modal visually-hidden'}>
       <div className='modal__content'>
-        <button className='modal__button'>
+        <button className='modal__button' onClick={hideModal}>
           <svg width='15' height='16' viewBox='0 0 15 16' fill='none'>
             <path d='M13.6399 15.0096L7.50482 8.86495L1.36977 15.0096L0 13.6399L6.14469 7.50482L0 1.36978L1.36977 0L7.50482 6.14469L13.6399 0.00964652L15 1.36978L8.86495 7.50482L15 13.6399L13.6399 15.0096Z' fill='#9F9E9E' />
           </svg>
         </button>
         <h2>Оставить отзыв </h2>
+        {getMessage(isNameValid)}
         <form action='#' className='modal__form' onSubmit={handleFormSubmit}>
           <div className='modal__form-left'>
             <label className='visually-hidden'></label>
@@ -103,6 +140,7 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
                 })}
               </div>
             </div>
+            {getMessage(isReviewTextValid)}
             <label htmlFor='reviewText' className='visually-hidden'></label>
             <textarea
               type='text'
@@ -111,10 +149,10 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
               onChange={handleChange}
               name='reviewText'
               id='reviewText'
-              className='modal__form-input modal__form-input--review'
+              className={isReviewTextValid() ? 'modal__form-input modal__form-input--review' : 'modal__form-input modal__form-input--review modal__form-input--invalid'}
             />
           </div>
-          <button className='modal__form-button'>Оставить отзыв</button>
+          <button className='modal__form-button' disabled={!isValid()}>Оставить отзыв</button>
         </form>
       </div>
     </div>
