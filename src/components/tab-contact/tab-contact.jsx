@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import MapContainer from '../map/map';
 
 const TabContact = ({isActive}) => {
@@ -26,5 +28,9 @@ const TabContact = ({isActive}) => {
     </div>
   );
 }
+
+TabContact.propTypes = {
+  isActive: PropTypes.bool,
+};
 
 export default TabContact;

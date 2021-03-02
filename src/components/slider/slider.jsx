@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const Slider = ({ images }) => {
   let [activeSlideIndex, setActiveSlideIndex] = useState(0);
@@ -63,6 +64,10 @@ const Slider = ({ images }) => {
       </div>
     </section>
   );
+};
+
+Slider.propTypes = {
+  images: PropTypes.array,
 };
 
 export default Slider;

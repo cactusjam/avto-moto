@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Header from '../header/header';
 import Promo from '../promo/promo';
 import Footer from '../footer/footer';
@@ -14,5 +16,9 @@ const Wrapper = ({ images }) => {
     </>
   );
 }
+
+Wrapper.propTypes = {
+  images: PropTypes.array,
+};
 
 export default Wrapper;

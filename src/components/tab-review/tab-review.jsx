@@ -98,6 +98,7 @@ const TabReview = ({ isActive, setModalVisibility, reviews }) => {
 }
 
 TabReview.propTypes = {
+  isActive: PropTypes.bool,
   reviews: PropTypes.array,
   setModalVisibility: PropTypes.func,
 };
@@ -105,7 +106,6 @@ TabReview.propTypes = {
 const mapStateToProps = (state) => ({
   reviews: getReviews(state),
 });
-
 
 const mapDispatchToProps = {
   setModalVisibility,

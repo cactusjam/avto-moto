@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const TabSpecification = ({isActive}) => {
+const TabSpecification = ({ isActive }) => {
   return (
       <ul className= {isActive ? 'block-tabs_content specification' : 'visually-hidden'}>
         <li className='specification__item'>
@@ -34,5 +35,9 @@ const TabSpecification = ({isActive}) => {
       </ul>
   );
 }
+
+TabSpecification.propTypes = {
+  isActive: PropTypes.bool,
+};
 
 export default TabSpecification;

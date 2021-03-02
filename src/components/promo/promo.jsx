@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Slider from '../slider/slider';
 import SliderDescription from '../slider-description/slider-description';
 import TabMenu from '../tab-menu/tab-menu';
@@ -14,5 +16,9 @@ const Promo = ({ images }) => {
     </main>
   );
 }
+
+Promo.propTypes = {
+  images: PropTypes.array,
+};
 
 export default Promo;

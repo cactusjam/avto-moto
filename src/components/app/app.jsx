@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Wrapper from '../wrapper/wrapper';
 
 const App = ({images}) => {
@@ -6,5 +7,13 @@ const App = ({images}) => {
     <Wrapper images={images}/>
   );
 }
+
+App.propTypes = {
+  images: PropTypes.array,
+};
+
+App.defaultProps = {
+  images: [],
+};
 
 export default App;
