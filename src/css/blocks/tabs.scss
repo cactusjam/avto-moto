@@ -135,6 +135,7 @@
   padding: 17px 0;
   border: 1px solid #D12136;
   background: none;
+  cursor: pointer;
 }
 
 .contacts {
@@ -151,7 +152,7 @@
 .contacts__item {
   display: flex;
   flex-direction: column;
-  list-style: 0;
+  list-style: none;
 
   &:not(:last-child) {
     margin-bottom: 20px;

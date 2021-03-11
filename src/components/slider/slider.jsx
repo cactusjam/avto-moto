@@ -9,7 +9,7 @@ const Slider = ({ images }) => {
     return (
       <div className='slider__snapper'>
         {isPrev
-          ? <button className={activeSlideIndex <= 0
+          ? <button type='button' aria-label='предыдущий слайд' className={activeSlideIndex <= 0
             ? 'slider__snapper-btn slider__snapper-btn--prev slider__snapper-btn--not-active'
             : 'slider__snapper-btn slider__snapper-btn--prev'}
             onClick={() => {
@@ -18,7 +18,7 @@ const Slider = ({ images }) => {
               }
               setActiveSlideIndex(--activeSlideIndex);
             }} />
-          : <button className={activeSlideIndex >= imagesMaxIndex
+          : <button type='' aria-label='следующий слайд' className={activeSlideIndex >= imagesMaxIndex
             ? 'slider__snapper-btn slider__snapper-btn--next slider__snapper-btn--not-active'
             : 'slider__snapper-btn slider__snapper-btn--next'}
             onClick={() => {

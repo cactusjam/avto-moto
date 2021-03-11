@@ -17,16 +17,16 @@ const TabMenu = () => {
     <div className="block-tabs">
       <div className="block-tabs_nav">
         {TABS.map((name, index) =>
-          <button
+          <button type='button' aria-label='переключить таб'
             key={`${index}-${name}`}
             onClick={handleButtonClick}
             className={name === activeTab ? 'block-tabs_nav-btn block-tabs_nav-btn--checked' : 'block-tabs_nav-btn'}>
             {name}
           </button>)}
       </div>
-      <TabSpecification isActive={activeTab === specification ? true : false} />
-      <TabReview isActive={activeTab === review ? true : false} />
-      <TabContact isActive={activeTab === contact ? true : false} />
+      <TabSpecification isActive={activeTab === specification}/>
+      <TabReview isActive={activeTab === review}/>
+      <TabContact isActive={activeTab === contact} />
     </div>
   );
 }

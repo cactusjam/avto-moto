@@ -20,7 +20,7 @@ export class MapContainer extends Component {
           }
         }
       >
-        <Marker></Marker>
+        <Marker/>
       </Map>
     );
   }

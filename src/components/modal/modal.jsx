@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -17,6 +17,19 @@ const defaultFormState = {
 
 const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) => {
   const [formState, setFormState] = useState({ ...defaultFormState })
+
+  useEffect(() => {
+    const handleEsc = (event) => {
+       if (event.keyCode === 27) {
+        hideModal();
+      }
+    };
+    window.addEventListener('keydown', handleEsc);
+
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, []);
 
   const hideModal = () => {
     setModalVisibility(false);
@@ -79,7 +92,7 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
   return (
     <div className={isModalVisible ? 'modal' : 'modal visually-hidden'}>
       <div className='modal__content'>
-        <button className='modal__button' onClick={hideModal}>
+        <button className='modal__button' onClick={hideModal} aria-label='close'>
           <svg width='15' height='16' viewBox='0 0 15 16' fill='none'>
             <path d='M13.6399 15.0096L7.50482 8.86495L1.36977 15.0096L0 13.6399L6.14469 7.50482L0 1.36978L1.36977 0L7.50482 6.14469L13.6399 0.00964652L15 1.36978L8.86495 7.50482L15 13.6399L13.6399 15.0096Z' fill='#9F9E9E' />
           </svg>
@@ -88,14 +101,15 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
         {getMessage(isNameValid)}
         <form action='#' className='modal__form' onSubmit={handleFormSubmit}>
           <div className='modal__form-left'>
-            <label className='visually-hidden'></label>
+            <label className='modal__form-label visually-hidden'></label>
             <input
               type='text'
               placeholder='Имя'
               name='name'
               value={formState.name}
               onChange={handleChange}
-              className='modal__form-input modal__form-input--name'
+              required
+              className= 'modal__form-input modal__form-input--name'
             />
             <label className='visually-hidden'></label>
             <input
@@ -140,7 +154,6 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
                 })}
               </div>
             </div>
-            {getMessage(isReviewTextValid)}
             <label htmlFor='reviewText' className='visually-hidden'></label>
             <textarea
               type='text'
@@ -149,10 +162,11 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
               onChange={handleChange}
               name='reviewText'
               id='reviewText'
+              required
               className={isReviewTextValid() ? 'modal__form-input modal__form-input--review' : 'modal__form-input modal__form-input--review modal__form-input--invalid'}
             />
           </div>
-          <button className='modal__form-button' disabled={!isValid()}>Оставить отзыв</button>
+          <button type='submit' className='modal__form-button' disabled={!isValid()} aria-label='Оставить отзыв'>Оставить отзыв</button>
         </form>
       </div>
     </div>

@@ -5,7 +5,7 @@ import MapContainer from '../map/map';
 
 const TabContact = ({isActive}) => {
   return (
-    <div className={isActive? 'block-tabs_content contacts' : 'visually-hidden'}>
+    <div className={isActive? 'block-tabs_content contacts' : 'contacts visually-hidden'}>
       <ul className='contacts__list'>
         <li className='contacts__item'>
           <span className='contacts__title'>Адрес</span>

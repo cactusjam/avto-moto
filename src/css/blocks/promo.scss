@@ -127,6 +127,7 @@
   text-transform: uppercase;
   padding: 17px 20px;
   background: none;
+  cursor: pointer;
 
   &--bid {
     background-color: rgba(209, 33, 54, 1);
@@ -176,7 +177,7 @@
 
   &--not-active {
     cursor: auto;
-    opacity: 50%;
+    opacity: 70%;
 
     &:focus {
       outline: none;

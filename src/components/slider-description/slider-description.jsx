@@ -14,8 +14,8 @@ const SliderDescription = () => {
         <span>2 300 000 ₽</span>
         <img src='/img/price.svg' width='123px' height='28px' alt='Цена'/>
       </div>
-      <button className='slider__description-button slider__description-button--bid' type='button'>оставить заявку</button>
-      <button className='slider__description-button slider__description-button--credit' type='button'>В КРЕДИТ ОТ 11 000 ₽</button>
+      <button className='slider__description-button slider__description-button--bid' type='button' aria-label='оставить заявку'>оставить заявку</button>
+      <button className='slider__description-button slider__description-button--credit' type='button' aria-label='в кредит от 11000 руб'>В КРЕДИТ ОТ 11 000 ₽</button>
     </section>
   );
 };

@@ -11,8 +11,8 @@ const TabReview = ({ isActive, setModalVisibility, reviews }) => {
   };
 
   return (
-    <ul className={isActive ? 'block-tabs_content reviews' : 'visually-hidden'}>
-      <button className='reviews__button' onClick={handleButtonClick}>
+    <ul className={isActive ? 'block-tabs_content reviews' : 'reviews visually-hidden'}>
+      <button type='button' aria-label='оставить отзыв' className='reviews__button' onClick={handleButtonClick}>
         Оставить отзыв
       </button>
 
@@ -39,7 +39,7 @@ const TabReview = ({ isActive, setModalVisibility, reviews }) => {
               </div>
               <div className='reviews__time'>
                 <span>1 минуту назад</span>
-                <button>Ответить</button>
+                <button type='button' aria-label='ответить'>Ответить</button>
               </div>
             </li>
           </Fragment>
@@ -66,7 +66,7 @@ const TabReview = ({ isActive, setModalVisibility, reviews }) => {
         </div>
         <div className='reviews__time'>
           <span>1 минуту назад</span>
-          <button>Ответить</button>
+          <button type='button' aria-label='ответить'>Ответить</button>
         </div>
       </li>
 
@@ -90,7 +90,7 @@ const TabReview = ({ isActive, setModalVisibility, reviews }) => {
         </div>
         <div className='reviews__time'>
           <span>1 минуту назад</span>
-          <button>Ответить</button>
+          <button type='button' aria-label='ответить'>Ответить</button>
         </div>
       </li>
     </ul>
