@@ -19,22 +19,37 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
   const [formState, setFormState] = useState({ ...defaultFormState })
 
   useEffect(() => {
-    const handleEsc = (event) => {
-       if (event.keyCode === 27) {
-        hideModal();
-      }
-    };
     window.addEventListener('keydown', handleEsc);
+
+    const nameFromStorage = localStorage.getItem('name');
+    if (nameFromStorage !== defaultFormState.name) {
+      setFormState({
+        ...formState,
+        name: nameFromStorage,
+      });
+    }
 
     return () => {
       window.removeEventListener('keydown', handleEsc);
     };
   }, []);
 
+  document.body.style.overflow = isModalVisible ? 'hidden' : 'auto';
   const hideModal = () => {
     setModalVisibility(false);
-    setFormState({ ...defaultFormState });
+
+    const nameFromState = formState.name;
+    setFormState({
+      ...defaultFormState,
+      name: nameFromState,
+    });
   }
+
+  const handleEsc = (event) => {
+    if (event.keyCode === 27) {
+      hideModal();
+    }
+  };
 
   const handleChange = (evt) => {
     const inputName = evt.target.name;
@@ -45,6 +60,8 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
       [inputName]: newValue,
       isFormChecked: true,
     });
+
+    localStorage.setItem(inputName, newValue);
   }
 
   const handleFormSubmit = (evt) => {
