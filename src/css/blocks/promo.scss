@@ -1,7 +1,7 @@
 .slider {
+  box-sizing: border-box;
   display: flex;
-  padding-top: 90px;
-  padding-bottom: 90px;
+  padding: 88px 13px;
 }
 
 .slider__gallery-list {
@@ -34,7 +34,8 @@
 }
 
 .slider__description {
-  padding-left: 57px;
+  padding-left: 58px;
+  margin-top: -10px;
 }
 
 .slider__gallery-img {
@@ -44,7 +45,7 @@
 
 .slider__description-caption {
   margin: 0;
-  margin-bottom: 19px;
+  margin-bottom: 25px;
   font-size: 30px;
   font-weight: 700;
   line-height: 30px;
@@ -58,7 +59,7 @@
 }
 
 .slider__description-item {
-  padding-right: 10px;
+  padding-right: 22px;
   color: rgba(72, 73, 77, 0.5);
   padding-top: 40px;
 
@@ -111,7 +112,7 @@
 }
 
 .slider__description-price {
-  margin: 35px 0;
+  margin: 38px 0;
 }
 
 
@@ -123,13 +124,15 @@
 
 .slider__description-button {
   display: block;
+  height: 52px;
+  align-items: center;
   font-size: 14px;
   text-transform: uppercase;
-  padding: 17px 20px;
   background: none;
   cursor: pointer;
 
   &--bid {
+    width: 196px;
     background-color: rgba(209, 33, 54, 1);
     color: rgba(255, 255, 255, 1);
     border: none;
@@ -137,6 +140,7 @@
   }
 
   &--credit {
+    width: 222px;
     color: rgba(209, 33, 54, 1);
     border: 1px solid #D12136;
   }

@@ -14,7 +14,7 @@ const TabMenu = () => {
   };
 
   return (
-    <div className="block-tabs">
+    <div className="container block-tabs">
       <div className="block-tabs_nav">
         {TABS.map((name, index) =>
           <button type='button' aria-label='переключить таб'

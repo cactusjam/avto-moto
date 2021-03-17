@@ -1,5 +1,6 @@
 .block-tabs {
-  padding-bottom: 90px;
+  box-sizing: border-box;
+  padding: 0 20px 127px 20px;
 }
 
 .block-tabs .block-tabs_content {
@@ -11,8 +12,9 @@
   font-family: "Open Sans", "Arial", sans-serif;
   font-size: 20px;
   font-weight: 400;
-  padding: 10px 0;
   width: 195px;
+  height: 50px;
+  align-items: center;
   border: 1px solid #D7D9DF;
   color: #48494D;
   background: none;
@@ -35,7 +37,7 @@
   flex-wrap: wrap;
   align-items: center;
   list-style: none;
-  width: 585px;
+  width: 565px;
   height: 50px;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
 }

@@ -9,7 +9,7 @@ const App = ({images}) => {
 }
 
 App.propTypes = {
-  images: PropTypes.array,
+  images: PropTypes.arrayOf(PropTypes.object),
 };
 
 App.defaultProps = {

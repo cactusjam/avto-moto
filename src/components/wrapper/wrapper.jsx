@@ -18,7 +18,7 @@ const Wrapper = ({ images }) => {
 }
 
 Wrapper.propTypes = {
-  images: PropTypes.array,
+  images: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default Wrapper;

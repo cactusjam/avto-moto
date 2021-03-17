@@ -7,8 +7,8 @@ import TabMenu from '../tab-menu/tab-menu';
 
 const Promo = ({ images }) => {
   return (
-    <main className='container'>
-      <section className='slider'>
+    <main>
+      <section className='container slider'>
         <Slider images={images} />
         <SliderDescription />
       </section>
@@ -18,7 +18,7 @@ const Promo = ({ images }) => {
 }
 
 Promo.propTypes = {
-  images: PropTypes.array,
+  images: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default Promo;

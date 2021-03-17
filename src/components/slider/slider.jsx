@@ -67,7 +67,7 @@ const Slider = ({ images }) => {
 };
 
 Slider.propTypes = {
-  images: PropTypes.array,
+  images: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default Slider;

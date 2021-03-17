@@ -99,7 +99,7 @@ const TabReview = ({ isActive, setModalVisibility, reviews }) => {
 
 TabReview.propTypes = {
   isActive: PropTypes.bool,
-  reviews: PropTypes.array,
+  reviews: PropTypes.arrayOf(PropTypes.object),
   setModalVisibility: PropTypes.func,
 };
 

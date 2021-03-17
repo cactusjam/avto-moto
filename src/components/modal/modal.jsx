@@ -22,7 +22,7 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
     window.addEventListener('keydown', handleEsc);
 
     const nameFromStorage = localStorage.getItem('name');
-    if (nameFromStorage !== defaultFormState.name) {
+    if (nameFromStorage && nameFromStorage !== defaultFormState.name) {
       setFormState({
         ...formState,
         name: nameFromStorage,
@@ -115,10 +115,10 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
           </svg>
         </button>
         <h2>Оставить отзыв </h2>
-        {getMessage(isNameValid)}
+        {getMessage(isValid)}
         <form action='#' className='modal__form' onSubmit={handleFormSubmit}>
           <div className='modal__form-left'>
-            <label className='modal__form-label visually-hidden'></label>
+            <label className={isNameValid()? 'visually-hidden' : 'modal__form-label'}></label>
             <input
               type='text'
               placeholder='Имя'
@@ -171,7 +171,7 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
                 })}
               </div>
             </div>
-            <label htmlFor='reviewText' className='visually-hidden'></label>
+            <label htmlFor='reviewText' className={isReviewTextValid()? 'visually-hidden' : 'modal__form-textarea'}></label>
             <textarea
               type='text'
               placeholder='Комментарий'
@@ -192,7 +192,7 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
 
 Modal.propTypes = {
   isModalVisible: PropTypes.bool,
-  reviews: PropTypes.array,
+  reviews: PropTypes.arrayOf(PropTypes.object),
   updateReviews: PropTypes.func,
   setModalVisibility: PropTypes.func,
 };
