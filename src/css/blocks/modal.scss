@@ -69,23 +69,13 @@
     margin-top: 15px;
   }
 
-  &:invalid {
+  &--invalid {
     border: 1px solid #d12136;
   }
 
   &:hover {
     border: 1px solid black;
   }
-
-  // &:required::before {
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   content: '*';
-  //   font-size: 17px;
-  //   line-height: 20px;
-  //   color: #D12136;
-  // }
 
   &::placeholder {
     font-size: 14px;

@@ -12,7 +12,7 @@ const defaultFormState = {
   limitations: '',
   rating: 0,
   reviewText: '',
-  isFormChecked: false,
+  submitFailed: false,
 }
 
 const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) => {
@@ -58,16 +58,23 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
     setFormState({
       ...formState,
       [inputName]: newValue,
-      isFormChecked: true,
+      submitFailed: false,
     });
 
     localStorage.setItem(inputName, newValue);
   }
 
   const handleFormSubmit = (evt) => {
+    console.log('handleFormSubmit');
+
     evt.preventDefault();
 
     if (!isValid()) {
+      setFormState({
+        ...formState,
+        submitFailed: true,
+      });
+
       return;
     }
 
@@ -89,15 +96,17 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
   };
 
   const isNameValid = () => formState.name.length > 0;
+  const isNameAndFormValid = () => !formState.submitFailed || isNameValid();
 
   const isReviewTextValid = () => formState.reviewText.length > 0;
+  const isReviewTextAndFormValid = () => !formState.submitFailed || isReviewTextValid();
 
   const isValid = () => {
     return isNameValid() && isReviewTextValid();
   }
 
   const getMessage = (validityCheckFunction) => {
-    if (formState.isFormChecked && !validityCheckFunction()) {
+    if (formState.submitFailed && !validityCheckFunction()) {
       return (
         <p className='modal__error'>Пожалуйста, заполните поле</p>
       );
@@ -118,15 +127,14 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
         {getMessage(isValid)}
         <form action='#' className='modal__form' onSubmit={handleFormSubmit}>
           <div className='modal__form-left'>
-            <label className={isNameValid()? 'visually-hidden' : 'modal__form-label'}></label>
+            <label className={isNameAndFormValid()? 'visually-hidden' : 'modal__form-label'}></label>
             <input
               type='text'
               placeholder='Имя'
               name='name'
               value={formState.name}
               onChange={handleChange}
-              required
-              className= 'modal__form-input modal__form-input--name'
+              className={isNameAndFormValid() ? 'modal__form-input modal__form-input--name' : 'modal__form-input modal__form-input--name modal__form-input--invalid'}
             />
             <label className='visually-hidden'></label>
             <input
@@ -171,7 +179,7 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
                 })}
               </div>
             </div>
-            <label htmlFor='reviewText' className={isReviewTextValid()? 'visually-hidden' : 'modal__form-textarea'}></label>
+            <label htmlFor='reviewText' className={isReviewTextAndFormValid()? 'visually-hidden' : 'modal__form-textarea'}></label>
             <textarea
               type='text'
               placeholder='Комментарий'
@@ -179,11 +187,10 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
               onChange={handleChange}
               name='reviewText'
               id='reviewText'
-              required
-              className={isReviewTextValid() ? 'modal__form-input modal__form-input--review' : 'modal__form-input modal__form-input--review modal__form-input--invalid'}
+              className={isReviewTextAndFormValid() ? 'modal__form-input modal__form-input--review' : 'modal__form-input modal__form-input--review modal__form-input--invalid'}
             />
           </div>
-          <button type='submit' className='modal__form-button' disabled={!isValid()} aria-label='Оставить отзыв'>Оставить отзыв</button>
+          <button type='submit' className='modal__form-button' aria-label='Оставить отзыв'>Оставить отзыв</button>
         </form>
       </div>
     </div>
