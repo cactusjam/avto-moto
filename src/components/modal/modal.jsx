@@ -116,7 +116,7 @@ const Modal = ({ isModalVisible, reviews, updateReviews, setModalVisibility }) =
   };
 
   return (
-    <div className={isModalVisible ? 'modal' : 'modal visually-hidden'}>
+    <div className={isModalVisible ? 'modal' : 'modal visually-hidden'} onClick={hideModal}>
       <div className='modal__content'>
         <button className='modal__button' onClick={hideModal} aria-label='close'>
           <svg width='15' height='16' viewBox='0 0 15 16' fill='none'>

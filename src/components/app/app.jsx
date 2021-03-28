@@ -9,7 +9,11 @@ const App = ({images}) => {
 }
 
 App.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.object),
+  images: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    alt: PropTypes.string.isRequired,
+    src: PropTypes.string.isRequired
+  })).isRequired
 };
 
 App.defaultProps = {
