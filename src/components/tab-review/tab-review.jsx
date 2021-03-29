@@ -11,7 +11,7 @@ const TabReview = ({ isActive, setModalVisibility, reviews }) => {
   };
 
   return (
-    <ul className={isActive ? 'block-tabs_content reviews' : 'reviews visually-hidden'}>
+    <ul className={isActive ? 'block-tabs__content reviews' : 'reviews visually-hidden'}>
       <button type='button' aria-label='оставить отзыв' className='reviews__button' onClick={handleButtonClick}>
         Оставить отзыв
       </button>

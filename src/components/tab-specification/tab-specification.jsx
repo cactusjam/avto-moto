@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const TabSpecification = ({ isActive }) => {
   return (
-      <ul className= {isActive ? 'block-tabs_content specification' : 'specification visually-hidden'}>
+      <ul className= {isActive ? ' specification' : 'specification visually-hidden'}>
         <li className='specification__item'>
           <span className='specification__type'>Трансмиссия</span>
           <span className='specification__text'>Роботизированная</span>

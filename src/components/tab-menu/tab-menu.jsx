@@ -15,12 +15,12 @@ const TabMenu = () => {
 
   return (
     <div className="container block-tabs">
-      <div className="block-tabs_nav">
+      <div className="block-tabs__nav">
         {TABS.map((name, index) =>
           <button type='button' aria-label='переключить таб'
             key={`${index}-${name}`}
             onClick={handleButtonClick}
-            className={name === activeTab ? 'block-tabs_nav-btn block-tabs_nav-btn--checked' : 'block-tabs_nav-btn'}>
+            className={name === activeTab ? 'block-tabs__nav-btn block-tabs__nav-btn--checked' : 'block-tabs__nav-btn'}>
             {name}
           </button>)}
       </div>
